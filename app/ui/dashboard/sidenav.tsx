@@ -1,3 +1,9 @@
+/*
+ * @Author: liuwenjun05 liuwenjun05@meituan.com
+ * @Date: 2023-11-29 20:44:04
+ * @LastEditors: liuwenjun05
+ * @Description: file content
+ */
 import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import AcmeLogo from '@/app/ui/acme-logo';
@@ -20,7 +26,7 @@ export default function SideNav() {
         <form>
           <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
             <PowerIcon className="w-6" />
-            <div className="hidden md:block">Sign Out</div>
+            <div className="hidden md:block">退出登陆</div>
           </button>
         </form>
       </div>

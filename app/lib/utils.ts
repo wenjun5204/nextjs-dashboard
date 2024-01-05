@@ -1,3 +1,9 @@
+/*
+ * @Author: liuwenjun05 liuwenjun05@meituan.com
+ * @Date: 2023-11-29 20:44:04
+ * @LastEditors: liuwenjun05
+ * @Description: file content
+ */
 import { Revenue } from './definitions';
 
 export const formatCurrency = (amount: number) => {
@@ -7,6 +13,7 @@ export const formatCurrency = (amount: number) => {
   });
 };
 
+// 格式化时间格式
 export const formatDateToLocal = (
   dateStr: string,
   locale: string = 'en-US',
@@ -35,6 +42,7 @@ export const generateYAxis = (revenue: Revenue[]) => {
   return { yAxisLabels, topLabel };
 };
 
+// 生成分页的展示数组
 export const generatePagination = (currentPage: number, totalPages: number) => {
   // If the total number of pages is 7 or less,
   // display all pages without any ellipsis.

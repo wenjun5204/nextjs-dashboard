@@ -21,7 +21,7 @@ export default function Page() {
           {/* <div className={styles.shape}></div> */}
           <div className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent" />
           <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-            <strong>欢迎你啊</strong>
+            <strong>我可以试试吗</strong>
             <a href="https://nextjs.org/learn/" className="text-blue-500">
               Next.js 官网学习课程
             </a>

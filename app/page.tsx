@@ -21,17 +21,17 @@ export default function Page() {
           {/* <div className={styles.shape}></div> */}
           <div className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent" />
           <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-            <strong>欢迎你啊</strong> This is the example for the{' '}
+            <strong>欢迎你啊</strong>
             <a href="https://nextjs.org/learn/" className="text-blue-500">
-              Next.js Learn Course
+              Next.js 官网学习课程
             </a>
-            , brought to you by Vercel.
+            , 部署在 Vercel.
           </p>
           <Link
             href="/login"
             className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
-            <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
+            <span>点击登录</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
           <Link
             href="/dashboard"

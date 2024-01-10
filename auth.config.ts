@@ -14,7 +14,7 @@ export const authConfig = {
         return false; // Redirect unauthenticated users to login page
       } else if (isLoggedIn) {
         console.log(666, (new URL('/user', nextUrl).toString()))
-        return Response.redirect('http://localhost:3000/user');
+        return Response.redirect(`${process.env.AUTH_URL}/user`);
       }
       return true;
     },

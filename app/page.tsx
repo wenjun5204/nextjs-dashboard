@@ -42,7 +42,7 @@ export default function Page() {
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           {/* Add Hero Images Here */}
-          <Image
+          {/* <Image
             src="/hero-desktop.png"
             width={1000}
             height={760}
@@ -55,7 +55,16 @@ export default function Page() {
             height={602}
             className="block md:hidden"
             alt="Screenshots of the dashboard project showing desktop version"
-          />
+          /> */}
+
+          <div className='w-full h-auto flex flex-col justify-center items-center'>
+            <div>图形正则表达式</div>
+            <iframe
+              frameBorder="0"
+              className=' w-full h-[500px]'
+              src="https://www.toolscat.com/dev/regex-img#!flags=&re=ss"
+            ></iframe>
+          </div>
         </div>
       </div>
     </main>

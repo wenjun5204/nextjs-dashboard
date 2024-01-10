@@ -115,9 +115,9 @@ export async function authenticate(
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin':
-          return 'Invalid credentials.';
+          return '账号密码错误.';
         default:
-          return 'Something went wrong.';
+          return '登录失败.';
       }
     }
     throw error;

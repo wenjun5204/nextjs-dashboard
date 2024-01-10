@@ -4,7 +4,7 @@
  * @LastEditors: liuwenjun05
  * @Description: file content
  */
-"use client"
+'use client';
 import { lusitana } from '@/app/ui/fonts';
 import {
   AtSymbolIcon,
@@ -66,6 +66,9 @@ export default function LoginForm() {
           </div>
         </div>
         <LoginButton />
+        <Button className="mt-4 w-full" >
+          back123 <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+        </Button>
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
@@ -87,7 +90,7 @@ function LoginButton() {
   const { pending } = useFormStatus();
   return (
     <Button className="mt-4 w-full" aria-disabled={pending}>
-      Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+      Log i2n <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
 }

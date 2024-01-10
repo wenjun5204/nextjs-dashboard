@@ -1,3 +1,9 @@
+/*
+ * @Author: liuwenjun05 liuwenjun05@meituan.com
+ * @Date: 2023-11-29 20:44:04
+ * @LastEditors: liuwenjun05
+ * @Description: file content
+ */
 'use client';
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
@@ -5,7 +11,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
 export default function Search({ placeholder }: { placeholder: string }) {
-  const searchParams = useSearchParams();
+  const searchParams: any = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
   const handleSearch = useDebouncedCallback((term: string) => {

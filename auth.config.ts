@@ -1,3 +1,4 @@
+
 import type { NextAuthConfig } from 'next-auth';
  
 export const authConfig = {
@@ -12,7 +13,8 @@ export const authConfig = {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
       } else if (isLoggedIn) {
-        return Response.redirect(new URL('/user', nextUrl));
+        console.log(666, (new URL('/user', nextUrl).toString()))
+        return Response.redirect('http://localhost:3000/user');
       }
       return true;
     },

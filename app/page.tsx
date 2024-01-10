@@ -58,9 +58,8 @@ export default function Page() {
           /> */}
 
           <div className='w-full h-auto flex flex-col justify-center items-center'>
-            <div>图形正则表达式</div>
+            <div className=' text-xs mt-1'>图形正则表达式1</div>
             <iframe
-              frameBorder="0"
               className=' w-full h-[500px]'
               src="https://www.toolscat.com/dev/regex-img#!flags=&re=ss"
             ></iframe>

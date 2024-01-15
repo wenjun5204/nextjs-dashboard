@@ -8,7 +8,7 @@ import {
   CurrencyDollarIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
-import { Button } from '@/app/ui/button';
+import { Button } from '@/components/ui/button'; '@/app/components/button';
 import { createInvoice } from '@/app/lib/action';
 import { useFormState } from 'react-dom';
 
@@ -16,7 +16,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createInvoice as any, initialState as any);
 
-  console.log(123, state);
+  // console.log(123, state);
   return (
     <form action={dispatch}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">

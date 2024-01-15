@@ -5,7 +5,6 @@
  * @Description: file content
  */
 'use client';
-import { lusitana } from '@/app/ui/fonts';
 import {
   AtSymbolIcon,
   KeyIcon,
@@ -14,15 +13,16 @@ import {
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from '@/components/ui/button'; '../components/button';
 import { useFormState, useFormStatus } from 'react-dom';
-import { authenticate } from '@/app/lib/action';
+import { createUser } from '@/app/lib/action';
 
 export default function LoginForm() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+  const [errorMessage, dispatch] = useFormState(createUser, undefined);
   return (
+    
     <form className="space-y-3" action={dispatch}>
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-        <h1 className={`${lusitana.className} mb-3 text-2xl`}>
-          Please log in to continue.
+        <h1 className={`mb-3 text-2xl`}>
+          注册吧哥哥
         </h1>
         <div className="w-full">
           <div>
@@ -67,7 +67,7 @@ export default function LoginForm() {
         </div>
         <LoginButton />
         <Button className="mt-4 w-full" >
-          back123 <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+          退出 <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
         </Button>
         <div
           className="flex h-8 items-end space-x-1"
@@ -77,7 +77,7 @@ export default function LoginForm() {
           {errorMessage && (
             <>
               <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-              <p className="text-sm text-red-500">{errorMessage}</p>
+              <p className="text-sm text-red-500">{errorMessage?.message}</p>
             </>
           )}
         </div>
@@ -90,7 +90,7 @@ function LoginButton() {
   const { pending } = useFormStatus();
   return (
     <Button className="mt-4 w-full" aria-disabled={pending}>
-      Log i2n <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+      注册 <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
 }

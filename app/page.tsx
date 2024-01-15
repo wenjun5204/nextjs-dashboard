@@ -34,6 +34,12 @@ export default function Page() {
             <span>点击登录</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
           <Link
+            href="/register"
+            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+          >
+            <span>没有账号？点击注册</span> <ArrowRightIcon className="w-5 md:w-6" />
+          </Link>
+          <Link
             href="/dashboard"
             className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >

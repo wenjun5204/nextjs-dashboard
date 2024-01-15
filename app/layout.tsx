@@ -4,7 +4,7 @@
  * @LastEditors: liuwenjun05
  * @Description: file content
  */
-import '@/app/ui/global.css';
+import '@/app/ui/globals.css';
 import { inter } from '@/app/ui/fonts';
 
 export default function RootLayout({

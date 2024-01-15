@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import bcrypt from 'bcrypt';
 
 const FormSchema = z.object({
   id: z.string(),
@@ -58,6 +59,7 @@ export type State = {
   message?: string | null;
 };
 
+//创建
 export async function createInvoice(prevState: State, formData: FormData) {
   const validatedFields = CreateInvoice.safeParse({
     customerId: formData.get('customerId'),
@@ -105,6 +107,7 @@ export async function deleteInvoice(id: string) {
   }
 }
 
+// 验证
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData,
@@ -122,4 +125,23 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+
+//创建用户
+export async function createUser(_: any,formData: FormData) {
+  const ss = await bcrypt.hash('666666', 10);
+  console.log('666s', _, formData);
+  try {
+    await sql`
+      INSERT INTO users (name, email, password)
+      VALUES (${'liuwenjun'}, ${'regan@gmail.com'}, ${ss})
+    `;
+  } catch (error) {
+    return {
+      message: 'Database Error: Failed to Create User.',
+    };
+  }
+
+  // return { message: 'User Created.' };
 }

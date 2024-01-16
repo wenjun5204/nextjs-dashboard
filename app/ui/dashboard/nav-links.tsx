@@ -1,8 +1,15 @@
+/*
+ * @Author: liuwenjun05 liuwenjun05@meituan.com
+ * @Date: 2023-11-29 20:44:04
+ * @LastEditors: liuwenjun05
+ * @Description: file content
+ */
 'use client';
 import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
+  QrCodeIcon
 } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -18,6 +25,7 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+  { name: '设置', href: '/dashboard/settings', icon: QrCodeIcon },
 ];
 
 export default function NavLinks() {

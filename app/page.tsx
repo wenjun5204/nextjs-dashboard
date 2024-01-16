@@ -23,7 +23,7 @@ export default function Page() {
           <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             <strong>我可以试试吗</strong>
             <a href="https://nextjs.org/learn/" className="text-blue-500">
-              Next.js 官网学习课程
+              Next.js 官网学习课程ss
             </a>
             , 部署在 Vercel.
           </p>

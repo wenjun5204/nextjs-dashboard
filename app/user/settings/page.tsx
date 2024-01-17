@@ -7,6 +7,6 @@
 
 export default function page() {
   return (
-    <div>关于页面</div>
+    <div>个人设置页面</div>
   )
 }

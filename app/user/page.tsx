@@ -7,18 +7,21 @@
 
 import { signOut } from '@/auth';
 import Link from 'next/link';
+import DropMenu from './compoments/drop-menu';
 
 export default function page() {
   return (
     <div>
-      用户权限页面
+      <div className="flex h-20 w-full items-center justify-between">
+        用户权限页面
+        <DropMenu />
+      </div>
+
       <Link
         className="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-600 p-4 md:h-40"
         href="/dashboard"
       >
-        <div className="w-32 text-white md:w-40">
-          返回首页
-        </div>
+        <div className="w-32 text-white md:w-40">返回首页</div>
       </Link>
       <form
         action={async () => {

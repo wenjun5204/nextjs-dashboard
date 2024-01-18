@@ -77,12 +77,12 @@ export type Payment = {
   bizId: null | number;
   jointOnlineId: null | number;
   onlineType: number;
-  canUpdateUsers: string[];
+  canUpdateUsers?: string[];
   canDelivery: boolean;
   isGray: boolean;
   jobNum: number;
-  rdDepartmentList: Department[];
-  qaDepartmentList: null | Department[];
+  rdDepartmentList?: Department[];
+  qaDepartmentList?: null | Department[];
 };
 
 

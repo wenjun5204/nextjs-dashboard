@@ -164,7 +164,7 @@ export async function fetchInvoiceById(id: string) {
       amount: invoice.amount / 100,
     }));
 
-    console.log(invoice)
+    console.log(invoice);
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
@@ -230,5 +230,39 @@ export async function getUser(email: string) {
   } catch (error) {
     console.error('Failed to fetch user:', error);
     throw new Error('Failed to fetch user.');
+  }
+}
+
+// 获取标签Card总数据信息
+export async function getTagsData() {
+  try {
+    const blogCountPromise = sql`SELECT COUNT(*) FROM blogs`;
+    const customerCountPromise = sql`SELECT COUNT(*) FROM users`;
+    const invoiceStatusPromise = sql`SELECT
+         SUM(CASE WHEN status = 'paid' THEN amount ELSE 0 END) AS "paid",
+         SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
+         FROM invoices`;
+
+    const data = await Promise.all([
+      blogCountPromise,
+      customerCountPromise,
+      invoiceStatusPromise,
+    ]);
+
+    console.log(666, data)
+    const numberOfBlogs = Number(data[0].rows[0].count ?? '0');
+    const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
+    const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
+    const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
+
+    return {
+      numberOfCustomers,
+      numberOfBlogs,
+      totalPaidInvoices,
+      totalPendingInvoices,
+    };
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch tags data.');
   }
 }

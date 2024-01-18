@@ -6,7 +6,10 @@
  */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: true,
+  images: {
+    domains: ['s11.ax1x.com', 's11.ax1x.com'],
+  },
 };
 
 module.exports = nextConfig;

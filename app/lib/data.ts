@@ -164,7 +164,6 @@ export async function fetchInvoiceById(id: string) {
       amount: invoice.amount / 100,
     }));
 
-    console.log(invoice);
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
@@ -249,7 +248,6 @@ export async function getTagsData() {
       invoiceStatusPromise,
     ]);
 
-    console.log(666, data)
     const numberOfBlogs = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
     const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
@@ -264,5 +262,33 @@ export async function getTagsData() {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch tags data.');
+  }
+}
+
+// 获取分页的上限信心
+
+export async function getOnlineData(
+  query?: string,
+  currentPage?: number,
+  pageSize?: number,
+) {
+  const newCurrentPage = currentPage || 1;
+  const newPageSize = pageSize || 10;
+  const offset = (newCurrentPage - 1) * newPageSize;
+
+  try {
+    const invoices = await sql<InvoicesTable>`
+      SELECT
+        *
+      FROM online_plan
+      
+      ORDER BY online_plan.projectonlinetime DESC
+      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    `;
+
+    return invoices.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch invoices.');
   }
 }

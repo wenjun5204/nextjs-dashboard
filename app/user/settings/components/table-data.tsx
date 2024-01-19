@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import * as React from "react"
 import {
@@ -41,8 +41,9 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { DataTableToolbar } from "./data-table-toolbar"
+import { getOnlineData } from "@/app/lib/data"
 
-const data: Payment[] =  oldData;
+
 
 export type Department = {
   orgId: number;
@@ -207,9 +208,8 @@ export const columns: ColumnDef<Payment>[] = [
   },
 ]
 
-export default function DataTableDemo(props: {
-  data: Payment[]
-}) {
+export default function DataTableDemo() {
+  const data: Payment[] =  oldData;
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []

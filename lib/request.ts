@@ -4,6 +4,8 @@
  * @LastEditors: liuwenjun05
  * @Description: file content
  */
+
+type RequestData = Record<string, any> | FormData;
 const request = {
   get: async (url: string, params: Record<string, string> = {}) => {
     try {
@@ -29,21 +31,20 @@ const request = {
       throw error; // 可以选择重新抛出错误以便在调用处处理
     }
   },
-  post: async (url: string, data = {}, options = {}) => {
+  post: async (url: string, data: RequestData = {}, options = {}) => {
     try {
       const init = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // 默认发送JSON数据
         },
-        body: JSON.stringify(data),
+        body: data instanceof FormData ? data : JSON.stringify(data),
         ...options, // 允许传入额外配置项覆盖默认值
       };
 
       // 如果数据是FormData类型，则使用FormData的默认content-type
       if (data instanceof FormData) {
         init.headers['Content-Type'] = 'multipart/form-data';
-        init.body = data;
       }
 
       const response = await fetch(url, init);

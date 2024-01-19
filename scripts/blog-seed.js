@@ -1,5 +1,5 @@
 const { db } = require('@vercel/postgres');
-const { blogs, users, oldData } = require('../app/lib/placeholder-data.js');
+const { blogs, users } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
 async function seedBlogs(client) {
@@ -111,7 +111,47 @@ async function seedOnlinePlan(client) {
         jobNum INT
     );`;
     const insertedPlan = await Promise.all(
-      oldData.map((item) => {
+      [
+        {
+          id: 46169,
+          name: '【外卖广告】【商家端】-20240115-上线计划',
+          rdDepartment: '159803',
+          qaDepartment: null,
+          dutyQa: 'weichunyan',
+          dutyRd: null,
+          planType: 0,
+          processType: 1,
+          status: 20,
+          createBy: 'weichunyan',
+          updateBy: null,
+          createTime: 1705308993000,
+          updateTime: null,
+          delFlag: 0,
+          projectOnlineTime: 1705320000000,
+          isStopAddProject: 0,
+          startBuildStageTime: null,
+          endBuildStageTime: null,
+          source: 0,
+          onlineProgramId: 103265,
+          bgOrgId: 103100,
+          createSystemSource: 0,
+          bizId: null,
+          jointOnlineId: null,
+          onlineType: 0,
+          canUpdateUsers: [
+            'mouyufei',
+            'liujunbing',
+            'liguan03',
+            'wanghe40',
+            'weichunyan',
+            'dingxiaopan',
+            'lixuesong05',
+          ],
+          canDelivery: false,
+          isGray: true,
+          jobNum: 0,
+        },
+      ].map((item) => {
         const {
           id,
           name,
@@ -170,7 +210,7 @@ async function seedOnlinePlan(client) {
             ${bizId},
             ${jointOnlineId},
             ${onlineType},
-            ${canUpdateUsers},
+            ${JSON.stringify(canUpdateUsers || [])},
             ${canDelivery},
             ${isGray},
             ${jobNum}
@@ -194,9 +234,9 @@ async function main() {
   const client = await db.connect();
   //   await seedBlogs(client);
 
-  // await seedOnlinePlan(client);
+  await seedOnlinePlan(client);
 
-  await alterUsers(client);
+  // await alterUsers(client);
   await client.end();
 }
 

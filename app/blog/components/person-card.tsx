@@ -29,7 +29,7 @@ export default async function PersonCard() {
   //   console.log(user);
   return (
     // 为下列div元素添加圆角和阴影
-    <div className=" flex h-auto w-[250px] flex-col justify-center rounded-xl bg-gray-50 shadow-sm">
+    <div className="mt-10 py-10 flex h-auto md:w-75 flex-col justify-center rounded-xl bg-gray-50 shadow-sm">
       <div className="flex flex-col items-center justify-around">
         <Image
           src="https://s11.ax1x.com/2024/01/18/pFANFzD.png"

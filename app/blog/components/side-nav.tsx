@@ -7,8 +7,7 @@
 import PersonCard from './person-card';
 export default function SideNav() {
   return (
-    <div className="flex h-full flex-col  items-center px-3 py-4 md:px-2">
-      这是侧边栏的页面
+    <div className="flex h-auto flex-col  items-center px-3 py-4 md:px-2">
       <PersonCard />
     </div>
   );

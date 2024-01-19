@@ -17,21 +17,9 @@ export default async function Page() {
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         数据监控
       </h1>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-        <Suspense fallback={<CardsSkeleton />}>
-          <CardWrapper />
-        </Suspense>
-      </div>
-      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        <Suspense fallback={<RevenueChartSkeleton />}>
-          <RevenueChart />
-        </Suspense>
-        <Suspense fallback={<RevenueChartSkeleton />}>
-          <LatestInvoices />
-        </Suspense>
-        {/* <LatestInvoices latestInvoices={latestInvoices} /> */}
-      </div>
+      <div>博客列表的展示页面</div>
+      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8"></div>
     </main>
   );
 }

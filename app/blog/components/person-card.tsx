@@ -32,7 +32,7 @@ export default async function PersonCard() {
     <div className="mt-10 py-10 flex h-auto md:w-75 flex-col justify-center rounded-xl bg-gray-50 shadow-sm">
       <div className="flex flex-col items-center justify-around">
         <Image
-          src="https://s11.ax1x.com/2024/01/18/pFANFzD.png"
+          src={"https://btf08gvibdziv1ae.public.blob.vercel-storage.com/image/beauty.png"}
           alt="作者头像"
           width={100}
           height={100}

@@ -37,13 +37,6 @@ export default async function PersonCard() {
           width={100}
           height={100}
         />
-        {/* <Image
-          width={560}
-          height={602}
-          className="block md:hidden"
-          src={'https://s11.ax1x.com/2024/01/18/pFANFzD.png'}
-          alt="个人头像"
-        /> */}
         <span className=" text-lg">{name}</span>
         <div>{email}</div>
       </div>

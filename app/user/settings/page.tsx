@@ -11,7 +11,7 @@ import { getOnlineData } from '@/app/lib/data';
 
 export default async function Page() {
   const ss = await getOnlineData();
-  console.log(666, ss);
+  // console.log(666, ss);
   // const [lastData, setLastData] = useState<any>();
   // const fetchReleaseDate = async (id: number) => {
   //   const res = await API.getEct({ onlineProgramId: id });

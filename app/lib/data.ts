@@ -8,8 +8,10 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  BlogsTable,
 } from './definitions';
 import { formatCurrency } from './utils';
+import API from '../user/settings/data';
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
@@ -287,6 +289,43 @@ export async function getOnlineData(
     `;
 
     return invoices.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch invoices.');
+  }
+}
+
+export const fetchWeather = async () => {
+  try {
+    const res = await API.getWeather({});
+    const { lives } = res || {};
+    return Array.isArray(lives) && lives[0];
+  } catch (error) {
+    throw new Error('Failed to fetch fetchWeather.');
+  }
+};
+
+// 首页获取所有的博客列表
+export async function fetchBlogList(
+  query?: string,
+  currentPage?: number,
+  pageSize?: number,
+) {
+  const newCurrentPage = currentPage || 1;
+  const newPageSize = pageSize || 10;
+  const offset = (newCurrentPage - 1) * newPageSize;
+
+  try {
+    const blogs = await sql<BlogsTable>`
+      SELECT
+        *
+      FROM blogs
+      
+      ORDER BY blogs.update_date DESC
+      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    `;
+
+    return blogs.rows;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch invoices.');

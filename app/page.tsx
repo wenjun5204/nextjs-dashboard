@@ -9,52 +9,38 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '@/app/ui/home.module.css';
+import PersonCard from './home/person-card';
+import WeatherCard from './home/weather-card';
+import MyCalendar from './home/theme-calender';
+import BlogList from './home/blog-list';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-6">
+    <main className="flex min-h-screen flex-col items-center p-6  bg-jianbian">
       <AcmeLogo />
 
-      <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-          {/* <div className={styles.shape}></div> */}
-          <div className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent" />
-          <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-            <strong>我可以试试吗</strong>
-            <a href="https://nextjs.org/learn/" className="text-blue-500">
-              Next.js 官网学习课程ss
-            </a>
-            , 部署在 Vercel.
-          </p>
-          <Link
-            href="/login"
-            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-          >
-            <span>点击登录</span> <ArrowRightIcon className="w-5 md:w-6" />
-          </Link>
-          <Link
-            href="/register"
-            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-          >
-            <span>没有账号？点击注册</span>{' '}
-            <ArrowRightIcon className="w-5 md:w-6" />
-          </Link>
-          <Link
-            href="/blog"
-            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-          >
-            <span>View blog</span>
-          </Link>
+      <section className="relative flex w-full max-w-7xl flex-col  gap-5 md:flex-row">
+        <div className="flex-1  bg-red-300 "></div>
+        <div className="flex-1  bg-red-300 "></div>
+        <div className="flex-1">
+          <PersonCard />
         </div>
-        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          <div className="flex h-auto w-full flex-col items-center justify-center">
+      </section>
+      <div className="relative mt-5 flex w-full max-w-7xl flex-col gap-10 md:flex-row">
+        <main className=" flex-shrink flex-grow-[2]">
+          <BlogList />
+          <div className="flex h-auto w-full flex-col items-center mt-10 justify-center">
             <div className=" mt-1 text-xs">图形正则表达式1</div>
             <iframe
               className=" h-[500px] w-full"
               src="https://www.toolscat.com/dev/regex-img#!flags=&re=ss"
             ></iframe>
           </div>
-        </div>
+        </main>
+        <aside className="w-full md:w-1/3">
+          <WeatherCard />
+          <MyCalendar />
+        </aside>
       </div>
     </main>
   );

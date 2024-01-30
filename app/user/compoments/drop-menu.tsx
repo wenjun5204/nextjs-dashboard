@@ -28,8 +28,12 @@ export default function DropMenu() {
           <DropdownMenuItem>
             <Link href="/user/settings">个人设置</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
+          <DropdownMenuItem>
+          <Link href="/blog">博客页面</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+          <Link href="/dashboard">数据面板</Link>
+          </DropdownMenuItem>
           <DropdownMenuItem>个人介绍</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

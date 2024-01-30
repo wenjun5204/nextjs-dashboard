@@ -9,6 +9,8 @@ import request from '@/lib/request';
 const URL = {
   getOnlinePlan:
     'https://fsd.sankuai.com/api/qa/v1/onlinePlan/getOnlinePlanList',
+    getWeather:
+    'https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key=dfa1a88fafad1faee1932685afb4325a',
   getEct:
     'https://ect.sankuai.com/api/provider/delivery/getOnlineProgramCheckData',
 };
@@ -17,6 +19,8 @@ const API = {
   getCityList: (params: any): Promise<any> =>
     request.get(URL.getOnlinePlan, { ...params }),
   getEct: (params: any) => request.get(URL.getEct, { ...params }),
+  getWeather: (params: any): Promise<any> =>
+    request.get(URL.getWeather, { ...params }),
 };
 
 export default API;

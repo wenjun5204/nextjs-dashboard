@@ -12,7 +12,7 @@ import Link from 'next/link';
 
 export default async function BlogList() {
   const Blogs = (await fetchBlogList()) || [];
-  console.log(Blogs);
+  // console.log(Blogs);
   return (
     <div className=" relative grid grid-cols-2 gap-5 md:grid-cols-3">
       {Blogs.map((it) => {

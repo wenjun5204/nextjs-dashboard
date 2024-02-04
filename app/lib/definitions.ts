@@ -62,6 +62,8 @@ export type BlogsTable = {
   author: string;
   update_date: any;
   tags: string;
+  blog_img: string;
+  publish_date: string;
   views: number;
   likes: number;
 };

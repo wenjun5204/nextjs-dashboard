@@ -35,7 +35,7 @@ const PersonCard = async () => {
           href="/login"
           className=" h-1/3 w-1/3"
         >
-          <Avatar className='w-full h-full'>
+          <Avatar className='w-full h-full hover:animate-spin'>
             <AvatarImage
               src="https://btf08gvibdziv1ae.public.blob.vercel-storage.com/image/beauty.png"
               alt="@regan"

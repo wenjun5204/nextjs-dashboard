@@ -1,10 +1,4 @@
-/*
- * @Author: liuwenjun05 liuwenjun05@meituan.com
- * @Date: 2023-11-29 20:44:04
- * @LastEditors: liuwenjun05
- * @Description: file content
- */
-// "use client"
+
 import { deleteInvoice } from '@/app/lib/action';
 import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';

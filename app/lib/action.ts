@@ -66,7 +66,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
     amount: formData.get('amount'),
     status: formData.get('status'),
   });
-  
+
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
@@ -76,7 +76,6 @@ export async function createInvoice(prevState: State, formData: FormData) {
   const { customerId, amount, status } = validatedFields.data;
   const amountInCents = amount * 100;
   const date = new Date().toISOString().split('T')[0];
-
 
   console.log(123, customerId, amount, status, date);
 
@@ -127,9 +126,8 @@ export async function authenticate(
   }
 }
 
-
 //创建用户
-export async function createUser(_: any,formData: FormData) {
+export async function createUser(_: any, formData: FormData) {
   const ss = await bcrypt.hash('666666', 10);
   console.log('666s', _, formData);
   try {
@@ -144,4 +142,27 @@ export async function createUser(_: any,formData: FormData) {
   }
 
   // return { message: 'User Created.' };
+}
+
+//创建新一片博客
+export async function createBlog(params: any) {
+  const { title, content, blogImg, tags } = params || {};
+  const date = new Date().toISOString().split('T')[0];
+
+  const author_id = '410544b2-4001-4271-9855-fec4b6a6442a';
+  const author = 'User';
+  // console.log(title, content, author_id, author, date, tags, blogImg);
+  try {
+    await sql`
+    INSERT INTO blogs (title, content, author_id, author, publish_date, update_date, tags, views, likes, blog_img)
+    VALUES (${title}, ${content}, ${author_id}, ${author}, ${date}, ${date}, ${tags}, ${0}, ${0}, ${blogImg})
+  `;
+  } catch (error) {
+    return {
+      message: 'Database Error: Failed to Create Blog.',
+    };
+  }
+
+  revalidatePath('/blog');
+  redirect('/blog');
 }

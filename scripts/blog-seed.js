@@ -62,9 +62,9 @@ async function alterUsers(client) {
     // await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     // Create the "users" table if it doesn't exist
     const alterTable = await client.sql`
-      ALTER TABLE users
-      ADD COLUMN avatar TEXT,
-      ADD COLUMN bio TEXT;
+      ALTER TABLE blogs
+      ADD COLUMN test TEXT,
+      ADD COLUMN blog_img TEXT;
       `;
 
     return {
@@ -234,7 +234,7 @@ async function main() {
   const client = await db.connect();
   //   await seedBlogs(client);
 
-  await seedOnlinePlan(client);
+  // await seedOnlinePlan(client);
 
   // await alterUsers(client);
   await client.end();

@@ -19,7 +19,7 @@ export const authConfig = {
       if (isOnDashboard && !isLoggedIn) {
         return Response.redirect(`${process.env.AUTH_URL}/login`);
       }else if(isOnLogin && isLoggedIn){
-        return Response.redirect(`${process.env.AUTH_URL}/user`);
+        return Response.redirect(`${process.env.AUTH_URL}/blog`);
       }
       return true;
     },

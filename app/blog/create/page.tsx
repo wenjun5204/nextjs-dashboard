@@ -1,4 +1,4 @@
-'use client';
+
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { BlogForm } from '../components/blog-form';
 

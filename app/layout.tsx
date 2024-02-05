@@ -15,14 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
-        <ThemeProvider 
+      <body className={`${inter.className} bg-jianbian antialiased`}>
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className='m-auto  max-w-7xl overflow-auto'>{children}</div>
         </ThemeProvider>
       </body>
     </html>

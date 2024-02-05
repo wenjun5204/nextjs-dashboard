@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import { fetchInvoicesPages } from '@/app/lib/data';
 import BlogSearch from '../components/blog-search';
 import Link from 'next/link';
+import BlogTable from '../components/blog-table';
 
 export default async function Page({
   searchParams,
@@ -18,7 +19,7 @@ export default async function Page({
   };
 }) {
   const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1
+  const currentPage = Number(searchParams?.page) || 1;
   return (
     <div className="w-full">
       <div className="flex w-full items-center justify-between">
@@ -31,12 +32,11 @@ export default async function Page({
           className="flex h-10 items-center rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
         >
           <span className="hidden md:block">新建博客</span>
-          <PlusIcon/>
+          <PlusIcon />
         </Link>
       </div>
-      <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
-        <Table query={query} currentPage={currentPage} />
-      </Suspense>
+
+      <BlogTable query={query} currentPage={currentPage} />
     </div>
   );
 }

@@ -11,10 +11,11 @@ import {
   KeyIcon,
   ExclamationCircleIcon,
 } from '@heroicons/react/24/outline';
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
-import { Button } from '@/components/ui/button'; '@/components/ui/button';
+import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/20/solid';
+import { Button } from '@/components/ui/button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/action';
+import Link from 'next/link';
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -22,7 +23,7 @@ export default function LoginForm() {
     <form className="space-y-3" action={dispatch}>
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
-          Please log in to continue.
+          点击登录继续.
         </h1>
         <div className="w-full">
           <div>
@@ -30,7 +31,7 @@ export default function LoginForm() {
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
               htmlFor="email"
             >
-              Email
+              邮箱
             </label>
             <div className="relative">
               <input
@@ -49,7 +50,7 @@ export default function LoginForm() {
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
               htmlFor="password"
             >
-              Password
+              密码
             </label>
             <div className="relative">
               <input
@@ -66,9 +67,12 @@ export default function LoginForm() {
           </div>
         </div>
         <LoginButton />
-        <Button className="mt-4 w-full" >
-          back123 <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
-        </Button>
+        <Link href={'/'}>
+          <Button className="mt-4 w-full">
+            返回 <ArrowLeftIcon className="ml-auto h-5 w-5 text-gray-50" />
+          </Button>
+        </Link>
+
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
@@ -90,7 +94,8 @@ function LoginButton() {
   const { pending } = useFormStatus();
   return (
     <Button className="mt-4 w-full" aria-disabled={pending}>
-      Log i2n <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+      登录
+      <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
 }

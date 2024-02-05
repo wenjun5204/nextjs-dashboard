@@ -338,7 +338,7 @@ export default function DataTableDemo() {
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            上一页
           </Button>
           <Button
             variant="outline"
@@ -346,7 +346,7 @@ export default function DataTableDemo() {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            下一页
           </Button>
         </div>
       </div>

@@ -16,17 +16,17 @@ import BlogList from './home/blog-list';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-6  bg-jianbian">
+    <main className="flex min-h-screen flex-col items-center p-6 ">
       <AcmeLogo />
 
-      <section className="relative flex w-full max-w-7xl flex-col  gap-5 md:flex-row">
+      <section className="relative flex w-full flex-col  gap-5 md:flex-row">
         <div className="flex-1  bg-red-300 "></div>
         <div className="flex-1  bg-red-300 "></div>
         <div className="flex-1">
           <PersonCard />
         </div>
       </section>
-      <div className="relative mt-5 flex w-full max-w-7xl flex-col gap-10 md:flex-row">
+      <div className="relative mt-5 flex w-full flex-col gap-10 md:flex-row">
         <main className=" flex-shrink flex-grow-[2]">
           <BlogList />
           <div className="flex h-auto w-full flex-col items-center mt-10 justify-center">

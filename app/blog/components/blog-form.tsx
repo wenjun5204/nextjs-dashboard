@@ -1,4 +1,4 @@
-
+'use client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Select,
@@ -47,13 +47,19 @@ const formSchema = z.object({
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
 
-export function BlogForm() {
+export function BlogForm(props: { mode?: string; blog?: any }) {
+  const { mode, blog } = props;
+  const { title: blogTitle, blog_img: blogImg, content, tags } = blog || {};
+
+  // console.log(666, blog);
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      blogTitle: '',
-      content: '**Hello world!!!**',
+      blogTitle: blogTitle || '',
+      content: content || '**Hello world!!!**',
+      blogImg: blogImg || '',
+      tags: tags || '',
     },
   });
 
@@ -99,7 +105,7 @@ export function BlogForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>文章内容</FormLabel>
-              <FormControl>
+              <FormControl className=' h-200'>
                 <MDEditor {...field} />
               </FormControl>
               <FormMessage />

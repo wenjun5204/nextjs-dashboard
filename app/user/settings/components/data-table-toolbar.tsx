@@ -1,18 +1,7 @@
-/*
- * @Author: liuwenjun05 liuwenjun05@meituan.com
- * @Date: 2024-01-17 17:26:57
- * @LastEditors: liuwenjun05
- * @Description: file content
- */
-"use client"
 
 import { Cross2Icon } from "@radix-ui/react-icons"
 import { Table } from "@tanstack/react-table"
 
-
-
-// import { priorities, statuses } from "../data/data"
-// import { DataTableFacetedFilter } from "./data-table-faceted-filter"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 

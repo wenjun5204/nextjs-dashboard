@@ -328,6 +328,26 @@ export async function fetchBlogList(
     return blogs.rows;
   } catch (error) {
     console.error('Database Error:', error);
-    throw new Error('Failed to fetch invoices.');
+    throw new Error('Failed to fetch blogs.');
+  }
+}
+
+
+
+export async function fetchBlogById(id: string) {
+  try {
+    const data = await sql<InvoiceForm>`
+      SELECT
+        *
+      FROM blogs
+      WHERE blogs.id = ${id};
+    `;
+
+    const blog = data.rows;
+
+    return blog[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch blog.');
   }
 }

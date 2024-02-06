@@ -2,6 +2,6 @@
 
 export default function Page() {
   return (
-    <div>page</div>
+    <div>home 展示</div>
   )
 }

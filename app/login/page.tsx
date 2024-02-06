@@ -4,7 +4,7 @@
  * @LastEditors: liuwenjun05
  * @Description: file content
  */
-import AcmeLogo from '@/app/ui/acme-logo';
+import AcmeLogo from '@/app/home/components/acme-logo';
 import LoginForm from './components/login-form';
  
 export default function LoginPage() {

@@ -1,6 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { fetchBlogList } from '../lib/data';
+import {
+  StarIcon,
+  HandThumbUpIcon,
+  FlagIcon,
+} from '@heroicons/react/24/outline';
 import { getDateDiff, isoStringToTimestamp } from '@/lib/utils';
 import {
   Tooltip,
@@ -29,22 +34,17 @@ export default async function BlogList() {
         } = it || {};
         return (
           <div
-            className="flex w-full flex-col items-center rounded-lg px-2 shadow-lg"
+            className="flex w-full flex-col items-center rounded-lg p-3 shadow-lg"
             key={it.id}
           >
             <div className="transform object-cover duration-300  hover:scale-110">
-              <Link
-                href={`/home/${id}/detail`}
-              >
+              <Link href={`/home/${id}/detail`}>
                 <Image
-                  src={
-                    blog_img ||
-                    'https://btf08gvibdziv1ae.public.blob.vercel-storage.com/image/beauty.png'
-                  }
+                  src={blog_img || '/assets/girl0.png'}
                   alt={title}
                   width={200}
-                  height={100}
-                  className="rounded-lg"
+                  height={200}
+                  className="aspect-video w-full rounded-lg"
                 />
               </Link>
 
@@ -61,18 +61,28 @@ export default async function BlogList() {
                   </h1>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{title}23</p>
+                  <p>{title}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
 
-            <p>{tags}</p>
-            <div className="flex items-center py-5">
-              <div>{views}</div>
-              <div>{likes}</div>
-              <div>{tags}</div>
+            <div className="flex w-full items-center gap-2 py-3 text-main">
+              <span className="flex w-6">
+                <StarIcon /> {views}
+              </span>
+              <span className="flex w-6">
+                <HandThumbUpIcon />
+                {likes}
+              </span>
+              <span className="flex w-6">
+                <FlagIcon />
+                {tags}
+              </span>
             </div>
-            <div>{author}</div>
+            <div className="w-full">
+              {author}
+              <span className='ml-4 text-highlight'>#{tags}</span>
+            </div>
           </div>
         );
       })}

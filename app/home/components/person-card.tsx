@@ -29,7 +29,7 @@ const PersonCard = async () => {
   //   console.log(user);
   return (
     // 为下列div元素添加圆角和阴影
-    <div className="md:w-75 mt-10 flex h-auto flex-col justify-center rounded-xl bg-gray-50 py-10 shadow-sm">
+    <div className="md:w-75 mt-4 flex h-auto flex-col justify-center rounded-xl bg-hide p-6 shadow-sm">
       <div className="relative flex flex-col items-center justify-around">
         <Link
           href="/login"
@@ -37,7 +37,7 @@ const PersonCard = async () => {
         >
           <Avatar className='w-full h-full hover:animate-spin'>
             <AvatarImage
-              src="https://btf08gvibdziv1ae.public.blob.vercel-storage.com/image/beauty.png"
+              src="/assets/dragon.png"
               alt="@regan"
             />
             <AvatarFallback>regan</AvatarFallback>

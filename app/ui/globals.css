@@ -74,3 +74,23 @@
     @apply bg-background text-foreground;
   }
 }
+
+.markdown-navigation {
+  padding: 0.5rem;
+
+  .title-level2 {
+    margin-left: 0.5rem;
+  }
+
+  .title-level3 {
+    margin-left: 1rem;
+  }
+
+  .title-level4 {
+    margin-left: 1.5rem;
+  }
+
+  .active{
+    color: #FF1A6C;
+  }
+}

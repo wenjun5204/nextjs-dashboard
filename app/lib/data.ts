@@ -312,9 +312,9 @@ export async function fetchBlogList(
   pageSize?: number,
 ) {
   const newCurrentPage = currentPage || 1;
-  const newPageSize = pageSize || 10;
+  const newPageSize = pageSize || 12;
   const offset = (newCurrentPage - 1) * newPageSize;
-
+  // 前端自带分页 
   try {
     const blogs = await sql<BlogsTable>`
       SELECT
@@ -322,7 +322,7 @@ export async function fetchBlogList(
       FROM blogs
       
       ORDER BY blogs.update_date DESC
-      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+      LIMIT ${newPageSize} OFFSET ${offset}
     `;
 
     return blogs.rows;

@@ -38,6 +38,7 @@
     "date-fns": "^2.30.0",
     "embla-carousel-autoplay": "^6.0.2",
     "embla-carousel-react": "^6.0.2",
+    "markdown-navbar": "^1.4.3",
     "next": "^14.0.2",
     "next-auth": "^5.0.0-beta.4",
     "next-remove-imports": "^1.0.6",
@@ -56,6 +57,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.1",
+    "@types/markdown-navbar": "^1.4.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.14",
     "@vercel/style-guide": "^5.0.1",

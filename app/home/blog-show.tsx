@@ -1,6 +1,5 @@
 'use client';
 import MarkdownPreview from '@uiw/react-markdown-preview';
-
 const sourceDef = `
 ## MarkdownPreview
 
@@ -9,5 +8,9 @@ const sourceDef = `
 
 export default function BlogShow({ blog }: { blog: any }) {
   const source = blog?.content || sourceDef;
-  return <MarkdownPreview source={source} />;
+  return (
+    <div>
+      <MarkdownPreview source={source} />
+    </div>
+  );
 }

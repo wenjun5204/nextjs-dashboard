@@ -11,6 +11,7 @@ export default async function BlogTable({
   query: string;
   currentPage: number;
 }) {
-  const blogs = await fetchBlogList(query, currentPage);
+  const blogs = await fetchBlogList(query, currentPage || 10, 10000);
+  // console.log(666, blogs)
   return <DataTable data={blogs} columns={columns}/>;
 }

@@ -83,6 +83,13 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
+    accessorKey: 'blog_img',
+    header: '首图',
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue('blog_img')}</div>
+    ),
+  },
+  {
     accessorKey: 'tags',
     header: 'tags',
     cell: ({ row }) => <div className="capitalize">{row.getValue('tags')}</div>,
@@ -119,9 +126,9 @@ export const columns: ColumnDef<Payment>[] = [
           <Link href={`/blog/${payment.id}/edit`}>
             <Button
               className="h-full w-20"
-            //   onClick={() =>
-            //     navigator.clipboard.writeText(payment.id.toString())
-            //   }
+              //   onClick={() =>
+              //     navigator.clipboard.writeText(payment.id.toString())
+              //   }
             >
               编辑
             </Button>

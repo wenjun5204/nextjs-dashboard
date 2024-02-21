@@ -29,8 +29,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { createBlog } from '@/app/lib/action';
-import { tags } from '../constant';
+import { createBlog, updateBlogById } from '@/app/lib/blog';
+import { tag } from '../constant';
 
 const formSchema = z.object({
   blogTitle: z.string().min(2, {
@@ -66,7 +66,11 @@ export function BlogForm(props: { mode?: string; blog?: any }) {
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(666, values);
-    createBlog({ ...values, title: values?.blogTitle });
+    if (mode === 'edit') {
+      updateBlogById(blog?.id, { ...values, title: values?.blogTitle });
+    } else {
+      createBlog({ ...values, title: values?.blogTitle });
+    }
   }
 
   return (
@@ -105,7 +109,7 @@ export function BlogForm(props: { mode?: string; blog?: any }) {
           render={({ field }) => (
             <FormItem>
               <FormLabel>文章内容</FormLabel>
-              <FormControl className=' h-200'>
+              <FormControl className=" h-200">
                 <MDEditor {...field} />
               </FormControl>
               <FormMessage />
@@ -127,9 +131,17 @@ export function BlogForm(props: { mode?: string; blog?: any }) {
                     <SelectValue placeholder="标签" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="light">Light</SelectItem>
+                    {(tag || []).map((item)=>{
+                      return (
+                        <SelectGroup key={item}>
+                          {/* <SelectLabel>{item}</SelectLabel> */}
+                          <SelectItem value={item}>{item}</SelectItem>
+                        </SelectGroup>
+                      );
+                    })}
+                    {/* <SelectItem value="light">Light</SelectItem>
                     <SelectItem value="dark">Dark</SelectItem>
-                    <SelectItem value="system">System</SelectItem>
+                    <SelectItem value="system">System</SelectItem> */}
                   </SelectContent>
                 </Select>
               </FormControl>

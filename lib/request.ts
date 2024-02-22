@@ -19,12 +19,12 @@ const request = {
       if (Object.keys(params).length > 0) {
         url += '?' + queryString;
       }
-      const newUrl =url.startsWith('/') ? 'https://liuwenjun.fun' + url : url;
-      const response = await fetch(newUrl);
+      // const newUrl =url.startsWith('/') ? 'https://liuwenjun.fun' + url : url;
+      const response = await fetch(url);
 
       // 检查响应状态
       if (!response.ok) {
-        throw new Error(`请求错误，错误码! status: ${response.status}`);
+        throw new Error(`请求错误，错误码! status: ${response?.status}`);
       }
 
       // 返回解析后的JSON数据

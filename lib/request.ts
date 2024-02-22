@@ -5,7 +5,7 @@
  * @Description: file content
  */
 
-const BASE_URL = process.env.AUTH_URL;
+// const BASE_URL = process.env.AUTH_URL;
 
 
 type RequestData = Record<string, any> | FormData;
@@ -19,7 +19,7 @@ const request = {
       if (Object.keys(params).length > 0) {
         url += '?' + queryString;
       }
-      const newUrl =url.startsWith('/') ? BASE_URL + url : url;
+      const newUrl =url.startsWith('/') ? 'https://liuwenjun.fun' + url : url;
       const response = await fetch(newUrl);
 
       // 检查响应状态

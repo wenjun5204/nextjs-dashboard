@@ -10,33 +10,31 @@ export default function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center p-6 ">
       <AcmeLogo />
-      <section className="relative flex w-full flex-col gap-4  pt-5 md:flex-row">
-        <div className="flex-1">
+      <section className="relative flex w-full flex-col gap-10  pt-5 md:flex-row">
+        <main className="flex flex-shrink flex-grow">
           <CarouselBlog />
-        </div>
-        <div className="flex-1">
           <CarouselVercelBlog />
-        </div>
-        <div className="flex-1">
+        </main>
+        <aside className="w-full md:w-1/4 flex-shrink-0">
           <PersonCard />
-        </div>
+        </aside>
       </section>
-      <div className="relative mt-5 flex w-full flex-col gap-10 md:flex-row">
-        <main className=" flex-shrink flex-grow-[2]">
+      <section className="relative mt-5 flex w-full flex-col gap-10 md:flex-row">
+        <main className=" flex-shrink flex-grow-0 ">
           <BlogList />
           <div className="mt-10 flex h-auto w-full flex-col items-center justify-center">
             <div className=" mt-1 text-xs">图形正则表达式1</div>
             <iframe
-              className=" h-[500px] w-full"
-              src="https://www.toolscat.com/dev/regex-img#!flags=&re=ss"
+              className=" h-[600px] w-full"
+              src="https://jex.im/regulex/"
             ></iframe>
           </div>
         </main>
-        <aside className="w-full md:w-1/3">
+        <aside className="w-full md:w-1/4 flex-shrink-0">
           <WeatherCard />
           <MyCalendar />
         </aside>
-      </div>
+      </section>
     </main>
   );
 }

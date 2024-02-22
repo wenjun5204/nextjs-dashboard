@@ -1,4 +1,10 @@
-import { RocketIcon, HamburgerMenuIcon, AccessibilityIcon, EnvelopeOpenIcon } from '@radix-ui/react-icons';
+import {
+  RocketIcon,
+  HamburgerMenuIcon,
+  AccessibilityIcon,
+  EnvelopeOpenIcon,
+  Pencil2Icon
+} from '@radix-ui/react-icons';
 import Image from 'next/image';
 import {
   Menubar,
@@ -15,6 +21,7 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from '@/components/ui/menubar';
+import Link from 'next/link';
 
 export function Menu() {
   return (
@@ -121,8 +128,20 @@ export function Menu() {
           <EnvelopeOpenIcon className="mr-3" /> 联系我
         </MenubarTrigger>
         <MenubarContent>
-          <Image src="/assets/wechat.jpg" alt="微信联系" width={200} height={200} />
+          <Image
+            src="/assets/wechat.jpg"
+            alt="微信联系"
+            width={200}
+            height={200}
+          />
         </MenubarContent>
+      </MenubarMenu>
+      <MenubarMenu>
+        <Link href="/home">
+          <MenubarTrigger className="flex ">
+            <Pencil2Icon className="mr-3" />工具
+          </MenubarTrigger>
+        </Link>
       </MenubarMenu>
     </Menubar>
   );

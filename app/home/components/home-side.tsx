@@ -6,7 +6,7 @@ export default function HomeSide({blog}:{blog:any}) {
   return (
     <div className="fixed top-0 h-screen w-80 ">
       {/* <PersonCard /> */}
-      <div className=" mt-10">
+      <div className=" mt-10 hidden md:flex">
         <BlogNav content={blog?.content}/>
       </div>
       <div className="mt-10">

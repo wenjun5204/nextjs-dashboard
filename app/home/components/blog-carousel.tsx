@@ -21,7 +21,7 @@ export default function CarouselBlog() {
         align: "start",
         loop: true,
       }}
-      className="w-80 mt-2 ml-6"
+      className="w-80 mt-2 mr-6"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >

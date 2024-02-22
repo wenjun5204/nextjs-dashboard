@@ -23,8 +23,6 @@ export default async function PersonCard() {
   const {
     numberOfCustomers,
     numberOfBlogs,
-    totalPaidInvoices,
-    totalPendingInvoices,
   } = await getTagsData();
   //   console.log(user);
   return (

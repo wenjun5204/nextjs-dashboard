@@ -23,13 +23,11 @@ const PersonCard = async () => {
   const {
     numberOfCustomers,
     numberOfBlogs,
-    totalPaidInvoices,
-    totalPendingInvoices,
   } = await getTagsData();
   //   console.log(user);
   return (
     // 为下列div元素添加圆角和阴影
-    <div className="md:w-75 mt-4 flex h-auto flex-col justify-center rounded-xl bg-hide p-6 shadow-sm">
+    <div className="w-full mt-4 flex h-auto flex-col justify-center rounded-xl bg-hide p-6 shadow-sm">
       <div className="relative flex flex-col items-center justify-around">
         <Link
           href="/login"

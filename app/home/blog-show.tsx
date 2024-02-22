@@ -9,8 +9,6 @@ const sourceDef = `
 export default function BlogShow({ blog }: { blog: any }) {
   const source = blog?.content || sourceDef;
   return (
-    <div>
-      <MarkdownPreview source={source} />
-    </div>
+    <MarkdownPreview className='w-full' source={source} />
   );
 }

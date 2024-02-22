@@ -247,19 +247,15 @@ export async function getTagsData() {
     const data = await Promise.all([
       blogCountPromise,
       customerCountPromise,
-      invoiceStatusPromise,
+      // invoiceStatusPromise,
     ]);
 
     const numberOfBlogs = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
-    const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
-    const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
 
     return {
       numberOfCustomers,
       numberOfBlogs,
-      totalPaidInvoices,
-      totalPendingInvoices,
     };
   } catch (error) {
     console.error('Database Error:', error);

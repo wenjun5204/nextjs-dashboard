@@ -1,9 +1,4 @@
-/*
- * @Author: liuwenjun05 liuwenjun05@meituan.com
- * @Date: 2023-11-29 20:44:04
- * @LastEditors: liuwenjun05
- * @Description: file content
- */
+
 import '@/app/ui/globals.css';
 import { inter } from '@/app/ui/fonts';
 import { ThemeProvider } from '@/components/theme/theme-provider';

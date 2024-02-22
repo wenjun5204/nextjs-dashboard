@@ -31,7 +31,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
-import { oldData } from "../data"
+import { oldData } from "../../../../lib/data"
 import {
   Table,
   TableBody,

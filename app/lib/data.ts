@@ -11,7 +11,7 @@ import {
   BlogsTable,
 } from './definitions';
 import { formatCurrency } from './utils';
-import API from '../user/settings/data';
+import API from '../../lib/data';
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.

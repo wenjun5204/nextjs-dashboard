@@ -4,16 +4,16 @@ import WeatherCard from './home/weather-card';
 import MyCalendar from './home/theme-calender';
 import BlogList from './home/blog-list';
 import CarouselBlog from './home/components/blog-carousel';
-import CarouselVercelBlog from './home/components/blog-vercel';
+import VercelNews from './home/components/vercel-new';
 
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center p-6 ">
       <AcmeLogo />
       <section className="relative flex w-full flex-col gap-10  pt-5 md:flex-row">
-        <main className="flex flex-shrink flex-grow">
+        <main className="flex flex-1">
           <CarouselBlog />
-          <CarouselVercelBlog />
+          <VercelNews />
         </main>
         <aside className="w-full md:w-1/4 flex-shrink-0">
           <PersonCard />

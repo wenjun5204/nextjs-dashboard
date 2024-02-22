@@ -9,10 +9,12 @@ import request from '@/lib/request';
 const URL = {
   getOnlinePlan:
     'https://fsd.sankuai.com/api/qa/v1/onlinePlan/getOnlinePlanList',
-    getWeather:
+  getWeather:
     'https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key=dfa1a88fafad1faee1932685afb4325a',
   getEct:
     'https://ect.sankuai.com/api/provider/delivery/getOnlineProgramCheckData',
+  getGuanNews:
+    'https://user.guancha.cn/news-api/fengwen-index-list.json?page=1&order=6',
 };
 
 const API = {
@@ -21,6 +23,8 @@ const API = {
   getEct: (params: any) => request.get(URL.getEct, { ...params }),
   getWeather: (params: any): Promise<any> =>
     request.get(URL.getWeather, { ...params }),
+  getGuanNews: (params: any): Promise<any> =>
+    request.get(URL.getGuanNews, { ...params }),
 };
 
 export default API;

@@ -5,6 +5,9 @@
  * @Description: file content
  */
 
+const BASE_URL = process.env.AUTH_URL;
+
+
 type RequestData = Record<string, any> | FormData;
 const request = {
   get: async (url: string, params: Record<string, string> = {}) => {
@@ -16,8 +19,8 @@ const request = {
       if (Object.keys(params).length > 0) {
         url += '?' + queryString;
       }
-
-      const response = await fetch(url);
+      const newUrl =url.startsWith('/') ? BASE_URL + url : url;
+      const response = await fetch(newUrl);
 
       // 检查响应状态
       if (!response.ok) {

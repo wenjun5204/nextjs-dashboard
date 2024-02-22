@@ -28,14 +28,13 @@ export default function CarouselBlog() {
       <CarouselContent>
         {Array.from({ length: 10 }).map((_, index) => (
           <CarouselItem key={index} className=''>
-            <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
                   
                 <Image src={`/assets/girl${index}.png`} alt="还没看够呢" width={300} height={300} />
                 </CardContent>
               </Card>
-            </div>
+    
           </CarouselItem>
         ))}
       </CarouselContent>

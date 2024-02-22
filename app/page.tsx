@@ -5,6 +5,7 @@ import MyCalendar from './home/theme-calender';
 import BlogList from './home/blog-list';
 import CarouselBlog from './home/components/blog-carousel';
 import VercelNews from './home/components/vercel-new';
+import OneSense from './home/components/one-sense';
 
 export default function Page() {
   return (
@@ -15,7 +16,7 @@ export default function Page() {
           <CarouselBlog />
           <VercelNews />
         </main>
-        <aside className="w-full md:w-1/4 flex-shrink-0">
+        <aside className="w-full flex-shrink-0 md:w-1/4">
           <PersonCard />
         </aside>
       </section>
@@ -30,9 +31,10 @@ export default function Page() {
             ></iframe>
           </div>
         </main>
-        <aside className="w-full md:w-1/4 flex-shrink-0">
+        <aside className="w-full flex-shrink-0 md:w-1/4">
           <WeatherCard />
           <MyCalendar />
+          <OneSense />
         </aside>
       </section>
     </main>

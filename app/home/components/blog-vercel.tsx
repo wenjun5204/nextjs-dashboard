@@ -12,6 +12,7 @@ import {
 import { useRef } from 'react';
 
 export default function CarouselVercelBlog({ news }: { news: any }) {
+  console.log(666, news);
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   return (
     <Carousel
@@ -29,14 +30,17 @@ export default function CarouselVercelBlog({ news }: { news: any }) {
         {news.map((item: any, index: number) => {
           const { title, post_url } = item || {};
           return (
-            <CarouselItem
-              key={index}
-              className="pt-2 basis-12"
-            >
+            <CarouselItem key={index} className="basis-12 pt-2">
               <Card>
                 <CardContent className="flex items-center justify-center p-2">
-                  <span className="text-overflow-ellipsis w-full overflow-hidden line-clamp-1 text-base font-semibold">
-                    <a href={post_url} target="_blank" rel="noopener noreferrer">{title}</a>
+                  <span className="text-overflow-ellipsis line-clamp-1 w-full overflow-hidden text-base font-semibold">
+                    <a
+                      href={post_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {title}
+                    </a>
                   </span>
                 </CardContent>
               </Card>

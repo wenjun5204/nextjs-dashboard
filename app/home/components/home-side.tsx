@@ -1,13 +1,14 @@
-import PersonCard from '@/app/blog/components/person-card';
+// import PersonCard from '@/app/blog/components/person-card';
 import Link from 'next/link';
 import BlogNav from './blog-nav';
 
-export default function HomeSide({blog}:{blog:any}) {
+export default function HomeSide() {
+
   return (
     <div className="fixed top-0 h-screen w-80 ">
       {/* <PersonCard /> */}
       <div className=" mt-10 hidden md:flex">
-        <BlogNav content={blog?.content}/>
+        <BlogNav />
       </div>
       <div className="mt-10">
         <Link href="/" className="text-blue-500 hover:underline">

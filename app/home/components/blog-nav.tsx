@@ -1,11 +1,13 @@
 'use client';
-import React from 'react';
+import React, { useContext } from 'react';
 import MarkdownNavbar from 'markdown-navbar';
-export default function BlogNav({ content }: any) {
+import { ThemeContext } from '@/components/theme/wraper-provider';
+export default function BlogNav() {
+  const value = useContext(ThemeContext);
   return (
     <div>
-      <div className=' text-lg text-main'>目录</div>
-      <MarkdownNavbar source={content} />
+      <div className=" text-lg text-main">目录</div>
+      <MarkdownNavbar source={value?.content} />
     </div>
   );
 }

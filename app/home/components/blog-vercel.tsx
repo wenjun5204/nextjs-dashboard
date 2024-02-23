@@ -27,7 +27,7 @@ export default function CarouselVercelBlog({ news }: { news: any }) {
     >
       <CarouselContent className="mt-0 h-80">
         {news.map((item: any, index: number) => {
-          const { city, description } = item || {};
+          const { title, post_url } = item || {};
           return (
             <CarouselItem
               key={index}
@@ -36,7 +36,7 @@ export default function CarouselVercelBlog({ news }: { news: any }) {
               <Card>
                 <CardContent className="flex items-center justify-center p-2">
                   <span className="text-overflow-ellipsis w-full overflow-hidden line-clamp-1 text-base font-semibold">
-                    {city}
+                    <a href={post_url} target="_blank" rel="noopener noreferrer">{title}</a>
                   </span>
                 </CardContent>
               </Card>

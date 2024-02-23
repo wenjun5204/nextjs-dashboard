@@ -1,9 +1,4 @@
-/*
- * @Author: liuwenjun05 liuwenjun05@meituan.com
- * @Date: 2024-01-16 14:26:02
- * @LastEditors: liuwenjun05
- * @Description: file content
- */
+
 "use client"
 
 import * as React from "react"

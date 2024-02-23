@@ -332,7 +332,7 @@ export async function fetchBlogList(
 
 export async function fetchBlogById(id: string) {
   try {
-    const data = await sql<InvoiceForm>`
+    const data = await sql<BlogsTable>`
       SELECT
         *
       FROM blogs

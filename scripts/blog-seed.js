@@ -1,5 +1,6 @@
 const { db } = require('@vercel/postgres');
 const { blogs, users } = require('../app/lib/placeholder-data.js');
+const { nalan } = require('./poetry.js');
 const bcrypt = require('bcrypt');
 
 async function seedBlogs(client) {
@@ -230,8 +231,56 @@ async function seedOnlinePlan(client) {
   }
 }
 
+async function seedPoetry(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "invoices" table if it doesn't exist
+    const createTable = await client.sql`CREATE TABLE IF NOT EXISTS poetry (
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+        title VARCHAR(255) NOT NULL,
+        para VARCHAR(255),
+        content TEXT,
+        author VARCHAR(255) NOT NULL,
+        tags VARCHAR(255),
+        views INT DEFAULT 0,
+        likes INT DEFAULT 0
+    );    
+`;
+
+    console.log(`Created "poetry" table`);
+
+    const insertedPoetrys = await Promise.all(
+      nalan.map((item) => {
+        const {
+          title,
+          para,
+          author,
+        } = item || {};
+        return client.sql`
+            INSERT INTO poetry (title, content, author)
+            VALUES (${title}, ${(para || []).join(';')}, ${author})
+            ON CONFLICT (id) DO NOTHING;
+          `;
+      }),
+    );
+
+    console.log(`Seeded ${insertedPoetrys.length} poetry`);
+
+    return {
+      createTable,
+      poetry: insertedPoetrys,
+    };
+  } catch (error) {
+    console.error('Error seeding poetrys:', error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
+
+  await seedPoetry(client);
   //   await seedBlogs(client);
 
   // await seedOnlinePlan(client);

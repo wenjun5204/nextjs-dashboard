@@ -1,20 +1,9 @@
 import { NextResponse } from 'next/server';
 
 export const GET = async (req: Request) => {
-  // var myHeaders = new Headers();
-  // myHeaders.append('Pragma', 'no-cache');
-  // myHeaders.append('User-Agent', 'Apifox/1.0.0 (https://www.apifox.cn)');
-  // myHeaders.append('Accept', '*/*');
-  // myHeaders.append('Host', 'user.guancha.cn');
-  // myHeaders.append('Connection', 'keep-alive');
-
-  // var requestOptions = {
-  //   method: 'GET',
-  //   headers: myHeaders,
-  //   redirect: 'follow',
-  // };
   const urlNews =
-    'https://apis.tianapi.com/bulletin/index?key=ac8ca45d1f2d90f82eedc80982fde095';
+    // 'https://apis.tianapi.com/bulletin/index?key=ac8ca45d1f2d90f82eedc80982fde095';
+    'https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key=dfa1a88fafad1faee1932685afb4325a';
   const response = await fetch(urlNews);
   // console.log(666, response);
   if (!response.ok) {
@@ -25,6 +14,6 @@ export const GET = async (req: Request) => {
   return NextResponse.json({
     success: true,
     errorMessage: 'success',
-    data: data?.result?.list|| [],
+    data: data?.lives || [],
   });
 };

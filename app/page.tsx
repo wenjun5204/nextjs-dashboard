@@ -3,9 +3,9 @@ import PersonCard from './home/components/person-card';
 import WeatherCard from './home/weather-card';
 import MyCalendar from './home/theme-calender';
 import BlogList from './home/blog-list';
-import CarouselBlog from './home/components/blog-carousel';
 import VercelNews from './home/components/vercel-new';
 import OneSense from './home/components/one-sense';
+import RowCarsel from './home/components/row-carousel';
 
 export default function Page() {
   return (
@@ -13,7 +13,7 @@ export default function Page() {
       <AcmeLogo />
       <section className="relative flex w-full flex-col gap-10  pt-5 md:flex-row">
         <main className="flex flex-1">
-          <CarouselBlog />
+          <RowCarsel />
           <VercelNews />
         </main>
         <aside className="w-full flex-shrink-0 md:w-1/4">

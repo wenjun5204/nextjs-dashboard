@@ -3,6 +3,7 @@ import Autoplay from 'embla-carousel-autoplay';
 
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import { LightningBoltIcon } from '@radix-ui/react-icons';
 import {
   Carousel,
   CarouselContent,
@@ -12,31 +13,59 @@ import {
 } from '@/components/ui/carousel';
 import { useRef } from 'react';
 
-export default function CarouselBlog() {
+export default function CarouselBlog({ zhihu }: { zhihu: any }) {
+  // console.log(6663, zhihu);
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   return (
     <Carousel
-      plugins={[plugin.current]}
+      // plugins={[plugin.current]}
       opts={{
-        align: "start",
+        align: 'start',
         loop: true,
       }}
-      className="w-80 mt-2 mr-6"
+      className="mr-6 mt-2 w-80"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
       <CarouselContent>
-        {Array.from({ length: 10 }).map((_, index) => (
-          <CarouselItem key={index} className=''>
+        {(zhihu || []).map((item: any, index: number) => {
+          const {
+            children,
+            detail_text,
+            target: { title, excerpt, url },
+          } = item || {};
+          const { thumbnail } = children[0] || {};
+          return (
+            <CarouselItem key={index} className="">
               <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  
-                <Image src={`/assets/girl${index}.png`} alt="还没看够呢" width={300} height={300} />
+                <CardContent className="flex aspect-square flex-col items-center justify-center p-6">
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    <div className=" line-clamp-2 text-hide">{title}</div>
+                  </a>
+                  <div
+                    className="aspect-video w-4/5"
+                    // src={thumbnail || `/assets/girl${index}.png`}
+                    // alt="还没看够呢"
+                    // width={300}
+                    // height={300}
+                    style={{
+                      backgroundImage: `url(${thumbnail || '/assets/girl1.png'})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                    }}
+                  />
+                  <div className="line-clamp-3 text-sm text-normal">
+                    {excerpt}
+                  </div>
+                  <div className=' flex-row-reverse text-highlight flex'>
+                    <LightningBoltIcon />
+                    <span>{detail_text}</span>
+                  </div>
                 </CardContent>
               </Card>
-    
-          </CarouselItem>
-        ))}
+            </CarouselItem>
+          );
+        })}
       </CarouselContent>
       {/* <CarouselPrevious />
       <CarouselNext /> */}

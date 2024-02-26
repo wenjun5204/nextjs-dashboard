@@ -3,7 +3,7 @@
 const nextConfig = {
   productionBrowserSourceMaps: true,
   images: {
-    domains: ['btf08gvibdziv1ae.public.blob.vercel-storage.com', 's11.ax1x.com'],
+    domains: ['btf08gvibdziv1ae.public.blob.vercel-storage.com'],
   },
 };
 

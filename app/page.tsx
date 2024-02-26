@@ -12,7 +12,7 @@ export default function Page() {
     <main className="flex min-h-screen flex-col items-center p-6 ">
       <AcmeLogo />
       <section className="relative flex w-full flex-col gap-10  pt-5 md:flex-row">
-        <main className="flex flex-1">
+        <main className="flex flex-1 fle-col md:flex-row">
           <RowCarsel />
           <VercelNews />
         </main>

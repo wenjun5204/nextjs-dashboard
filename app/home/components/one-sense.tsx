@@ -1,21 +1,35 @@
-'use client'
-import { useEffect } from 'react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
-export default function OneSense() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://sdk.jinrishici.com/v2/browser/jinrishici.js';
-    script.async = true;
-    document.body.appendChild(script);
+export default async function OneSense() {
+  const ss = await fetch(
+    'https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token=M8Au2tRQxuXtgdTjRJOODweL9amHhNnu',
+  ).then((res) => res.json());
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
+  // console.log(666, ss);
+  const {
+    origin: { title, author, content, dynasty },
+  } = ss?.data || {};
   return (
-    <div className='w-full mt-6 flex justify-center h-10 text-highlight'>
-      <span id="jinrishici-sentence">正在加载今日诗词....</span>
-    </div>
+    <Card className=" bg-transparent mt-6 flex h-auto w-full flex-col justify-center text-main">
+      <CardHeader>
+        <CardTitle className="text-center text-highlight">{title}</CardTitle>
+
+        <span className=' text-right'>{author}</span>
+      </CardHeader>
+      <CardContent>
+        <div className="flex flex-col items-center">
+          {(content || []).slice(0, 4).map((it: string, ind: number) => {
+            return <div className='text-left' key={ind}>{it}</div>;
+          })}
+        </div>
+      </CardContent>
+    </Card>
   );
 }

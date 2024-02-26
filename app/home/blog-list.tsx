@@ -1,11 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { fetchBlogList } from '../lib/data';
-import {
-  StarIcon,
-  HandThumbUpIcon,
-  FlagIcon,
-} from '@heroicons/react/24/outline';
+import { StarIcon, HeartIcon, BookmarkIcon } from '@radix-ui/react-icons';
 import { getDateDiff, isoStringToTimestamp } from '@/lib/utils';
 import {
   Tooltip,
@@ -67,15 +63,15 @@ export default async function BlogList() {
             </TooltipProvider>
 
             <div className="flex w-full items-center gap-2 py-3 text-main">
-              <span className="flex w-6">
+              <span className="flex items-center gap-1">
                 <StarIcon /> {views}
               </span>
-              <span className="flex w-6">
-                <HandThumbUpIcon />
+              <span className="flex items-center gap-1">
+                <HeartIcon />
                 {likes}
               </span>
-              <span className="flex w-6">
-                <FlagIcon />
+              <span className="flex items-center gap-1">
+                <BookmarkIcon />
                 {tags}
               </span>
             </div>

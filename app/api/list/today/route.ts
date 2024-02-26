@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export const GET = async (req: Request) => {
   const urlNews =
-    'https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=20&desktop=true';
+    'https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token=M8Au2tRQxuXtgdTjRJOODweL9amHhNnu';
   const response = await fetch(urlNews);
   if (!response.ok) {
     return NextResponse.json({

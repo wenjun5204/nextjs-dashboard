@@ -12,7 +12,7 @@ import {
 import { useRef } from 'react';
 
 export default function CarouselVercelBlog({ news }: { news: any }) {
-  console.log(666, news);
+  // console.log(666, news);
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   return (
     <Carousel

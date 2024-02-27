@@ -3,7 +3,14 @@
 const nextConfig = {
   productionBrowserSourceMaps: true,
   images: {
-    domains: ['btf08gvibdziv1ae.public.blob.vercel-storage.com'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'cdn.liuwenjun.fun',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 

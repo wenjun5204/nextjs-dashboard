@@ -54,10 +54,10 @@ export default function CarouselBlog({ zhihu }: { zhihu: any }) {
                       backgroundPosition: 'center',
                     }}
                   />
-                  <div className="line-clamp-3 text-sm text-normal">
+                  <div className="line-clamp-3 w-full text-sm text-normal">
                     {excerpt}
                   </div>
-                  <div className=' flex-row-reverse text-highlight flex'>
+                  <div className='w-full flex-row-reverse items-center text-highlight flex'>
                     <LightningBoltIcon />
                     <span>{detail_text}</span>
                   </div>

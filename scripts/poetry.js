@@ -2704,7 +2704,23 @@ const nalan = [
   },
 ];
 
+const comments = [
+  {
+    title: 'ss',
+    content:
+      '就好像高等数学之外有微积分，微积分之外还有线性代数，人生就是一座又一座高山，有多大能力就看多远的风景，不是非要看到山那边的海才叫人生。 或许那边本没有海，只有更高的山。',
+    comment_time: '2024-01-01 00:00:00',
+    commenter: 'regan',
+    commenter_avatar: '',
+    author: 'regan',
+    blog_id: '060b705e-e021-4ed1-9f54-4b2fa4d875e1',
+    reply_id: null,
+    views: 0,
+    likes: 0,
+  },
+];
 
-module.exports ={
-    nalan,
-}
+module.exports = {
+  nalan,
+  comments,
+};

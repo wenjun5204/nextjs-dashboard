@@ -1,6 +1,6 @@
 const { db } = require('@vercel/postgres');
 const { blogs, users } = require('../app/lib/placeholder-data.js');
-const { nalan } = require('./poetry.js');
+const { nalan, comments } = require('./poetry.js');
 const bcrypt = require('bcrypt');
 
 async function seedBlogs(client) {
@@ -252,11 +252,7 @@ async function seedPoetry(client) {
 
     const insertedPoetrys = await Promise.all(
       nalan.map((item) => {
-        const {
-          title,
-          para,
-          author,
-        } = item || {};
+        const { title, para, author } = item || {};
         return client.sql`
             INSERT INTO poetry (title, content, author)
             VALUES (${title}, ${(para || []).join(';')}, ${author})
@@ -277,10 +273,67 @@ async function seedPoetry(client) {
   }
 }
 
+async function seedComment(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "invoices" table if it doesn't exist
+    const createTable = await client.sql`CREATE TABLE IF NOT EXISTS comment (
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+        title VARCHAR(255),
+        content TEXT,
+        comment_time TIMESTAMPTZ NOT NULL,
+        commenter VARCHAR(255) NOT NULL,
+        commenter_avatar VARCHAR(255),
+        author VARCHAR(255),
+        blog_id UUID NOT NULL,
+        reply_id INT,
+        views INT DEFAULT 0,
+        likes INT DEFAULT 0,
+        FOREIGN KEY (blog_id) REFERENCES blogs(id)
+    );    
+`;
+
+    console.log(`Created "comment" table`);
+
+    const insertedcomments = await Promise.all(
+      comments.map((item) => {
+        const {
+          title,
+          content,
+          comment_time,
+          commenter,
+          commenter_avatar,
+          author,
+          blog_id,
+          reply_id,
+          views,
+          likes,
+        } = item || {};
+        return client.sql`
+            INSERT INTO comment (title, content, comment_time, commenter, commenter_avatar, author, blog_id, reply_id, views, likes)
+            VALUES (${title}, ${content}, ${comment_time}, ${commenter}, ${commenter_avatar}, ${author}, ${blog_id}, ${reply_id}, ${views}, ${likes})
+            ON CONFLICT (id) DO NOTHING;
+          `;
+      }),
+    );
+
+    console.log(`Seeded ${insertedcomments.length} comments`);
+
+    return {
+      createTable,
+      poetry: insertedcomments,
+    };
+  } catch (error) {
+    console.error('Error seeding comments:', error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
 
-  await seedPoetry(client);
+  await seedComment(client);
   //   await seedBlogs(client);
 
   // await seedOnlinePlan(client);

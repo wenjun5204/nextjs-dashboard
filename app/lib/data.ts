@@ -310,7 +310,7 @@ export async function fetchBlogList(
   const newCurrentPage = currentPage || 1;
   const newPageSize = pageSize || 12;
   const offset = (newCurrentPage - 1) * newPageSize;
-  // 前端自带分页 
+  // 前端自带分页
   try {
     const blogs = await sql<BlogsTable>`
       SELECT
@@ -328,8 +328,6 @@ export async function fetchBlogList(
   }
 }
 
-
-
 export async function fetchBlogById(id: string) {
   try {
     const data = await sql<BlogsTable>`
@@ -345,5 +343,32 @@ export async function fetchBlogById(id: string) {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch blog.');
+  }
+}
+
+// 获取评论的数据
+export async function fetchComment(
+  query?: string,
+  currentPage?: number,
+  pageSize?: number,
+) {
+  const newCurrentPage = currentPage || 1;
+  const newPageSize = pageSize || 12;
+  const offset = (newCurrentPage - 1) * newPageSize;
+  // 前端自带分页
+  try {
+    const comments = await sql<BlogsTable>`
+      SELECT
+        *
+      FROM comment
+      
+      ORDER BY comment.comment_time DESC
+      LIMIT ${newPageSize} OFFSET ${offset}
+    `;
+
+    return comments.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch comments.');
   }
 }

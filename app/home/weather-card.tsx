@@ -10,22 +10,33 @@ const WeatherCard = async () => {
   return (
     <section className="flex h-auto w-full rounded-md bg-[#9d9a97] text-base text-white">
       <div className="flex h-full w-full flex-col p-5">
-        <div className="flex items-center">
-          <div className="text-2xl font-bold">{province}</div>
-          <div className="text-xl font-bold">{city}</div>
+        <div className=" flex w-full justify-between">
+          <div>
+            <div className="flex items-baseline">
+              <div className="text-2xl font-bold">{province}</div>
+              <div className="text-sm font-bold">{city}</div>
+            </div>
+            <div className="text-2xl font-bold">
+              温度
+              <span className=" text-king">{temperature}</span>
+              &nbsp;&deg;C
+            </div>
+          </div>
+
+          <Image
+            className=" aspect-square"
+            src="http://cdn.liuwenjun.fun/test.png"
+            alt="weather"
+            width={80}
+            height={50}
+          />
         </div>
 
-        <div className="text-2xl font-bold">温度{temperature}</div>
         <div className="text-2xl font-bold">
-          天气 <span>{weather}</span>
+          天气 <span className=" text-main">{weather}</span>
         </div>
-        <Image
-          src="http://cdn.liuwenjun.fun/test.png?e=1709036788&token=JaJiiLsQrhK2e-OSJvMDMjtcWp3coa9UQQf6dWLs:UiXlFUkqMev84_O95EXeLuOZ0Xk="
-          alt="weather"
-          width={200}
-          height={200}
-        />
-        <div className="text-2xl font-bold">{reporttime}</div>
+
+        <div className="text-xl font-bold text-normal">{reporttime}</div>
       </div>
     </section>
   );

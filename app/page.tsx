@@ -6,13 +6,14 @@ import BlogList from './home/blog-list';
 import VercelNews from './home/components/vercel-new';
 import OneSense from './home/components/one-sense';
 import RowCarsel from './home/components/row-carousel';
+import LatestComment from './home/latest-comment';
 
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center p-6 ">
       <AcmeLogo />
       <section className="relative flex w-full flex-col gap-10  pt-5 md:flex-row">
-        <main className="flex flex-1 fle-col md:flex-row">
+        <main className="fle-col flex flex-1 md:flex-row">
           <RowCarsel />
           <VercelNews />
         </main>
@@ -35,6 +36,7 @@ export default function Page() {
           <WeatherCard />
           <MyCalendar />
           <OneSense />
+          <LatestComment />
         </aside>
       </section>
     </main>

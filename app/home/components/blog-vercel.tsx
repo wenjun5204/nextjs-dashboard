@@ -9,10 +9,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-export default function CarouselVercelBlog({ news }: { news: any }) {
-  // console.log(666, news);
+const CarouselVercelBlog = ({ news }: { news: any }) => {
+  const [date, setDate] = useState([]);
+  useEffect(() => {
+    setDate(news);
+  }, [news]);
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   return (
     <Carousel
@@ -27,7 +30,7 @@ export default function CarouselVercelBlog({ news }: { news: any }) {
       onMouseLeave={plugin.current.reset}
     >
       <CarouselContent className="mt-0 h-80">
-        {news.map((item: any, index: number) => {
+        {date.map((item: any, index: number) => {
           const { title, post_url } = item || {};
           return (
             <CarouselItem key={index} className="basis-12 pt-2">
@@ -52,4 +55,6 @@ export default function CarouselVercelBlog({ news }: { news: any }) {
       <CarouselNext /> */}
     </Carousel>
   );
-}
+};
+
+export default CarouselVercelBlog;

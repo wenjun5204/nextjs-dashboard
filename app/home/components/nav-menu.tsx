@@ -3,9 +3,10 @@ import {
   HamburgerMenuIcon,
   AccessibilityIcon,
   EnvelopeOpenIcon,
-  Pencil2Icon
+  Pencil2Icon,
 } from '@radix-ui/react-icons';
 import Image from 'next/image';
+import { tag } from '@/app/constant';
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -29,25 +30,14 @@ export function Menu() {
       <MenubarMenu>
         <MenubarTrigger>
           <HamburgerMenuIcon className="mr-3" />
-          分类
+          <span className="hidden md:block">分类</span>
         </MenubarTrigger>
         <MenubarContent>
-          <MenubarItem>
-            New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem>
-            New Window <MenubarShortcut>⌘N</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem disabled>New Incognito Window</MenubarItem>
-          <MenubarSeparator />
-          <MenubarSub>
-            <MenubarSubTrigger>Share</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>Email link</MenubarItem>
-              <MenubarItem>Messages</MenubarItem>
-              <MenubarItem>Notes</MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
+          {tag.map((it, ind) => (
+            <MenubarItem key={ind}>
+              {it} <MenubarShortcut>⌘{ind}</MenubarShortcut>
+            </MenubarItem>
+          ))}
           <MenubarSeparator />
           <MenubarItem>
             Print... <MenubarShortcut>⌘P</MenubarShortcut>
@@ -57,7 +47,7 @@ export function Menu() {
       <MenubarMenu>
         <MenubarTrigger>
           <RocketIcon className="mr-3" />
-          话题
+          <span className="hidden md:block">话题</span>
         </MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
@@ -86,7 +76,7 @@ export function Menu() {
       <MenubarMenu>
         <MenubarTrigger>
           <RocketIcon className="mr-3" />
-          生活
+          <span className="hidden md:block">生活</span>
         </MenubarTrigger>
         <MenubarContent>
           <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
@@ -109,7 +99,7 @@ export function Menu() {
       <MenubarMenu>
         <MenubarTrigger>
           <AccessibilityIcon className="mr-3" />
-          茶馆
+          <span className="hidden md:block">茶馆</span>
         </MenubarTrigger>
         <MenubarContent>
           <MenubarRadioGroup value="benoit">
@@ -125,7 +115,8 @@ export function Menu() {
       </MenubarMenu>
       <MenubarMenu>
         <MenubarTrigger className="flex ">
-          <EnvelopeOpenIcon className="mr-3" /> 联系我
+          <EnvelopeOpenIcon className="mr-3" />
+          <span className="hidden md:block">联系我</span>
         </MenubarTrigger>
         <MenubarContent>
           <Image
@@ -139,7 +130,8 @@ export function Menu() {
       <MenubarMenu>
         <Link href="/home">
           <MenubarTrigger className="flex ">
-            <Pencil2Icon className="mr-3" />工具
+            <Pencil2Icon className="mr-3" />
+            <span className="hidden md:block">工具</span>
           </MenubarTrigger>
         </Link>
       </MenubarMenu>

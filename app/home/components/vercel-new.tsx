@@ -1,4 +1,3 @@
-
 import CarouselVercelBlog from './blog-vercel';
 
 export default async function VercelNews() {
@@ -8,5 +7,9 @@ export default async function VercelNews() {
   const { data } = res || {};
 
   // const data: any = [{ city: 123 }];
-  return <CarouselVercelBlog news={data || []} />;
+  return (
+    <div className=' max-w-lg'>
+      <CarouselVercelBlog news={data || []} />
+    </div>
+  );
 }

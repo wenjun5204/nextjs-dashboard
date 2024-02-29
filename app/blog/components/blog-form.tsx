@@ -30,7 +30,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { createBlog, updateBlogById } from '@/app/lib/blog';
-import { tag } from '../constant';
+import { tag } from '@/app/constant';
 
 const formSchema = z.object({
   blogTitle: z.string().min(2, {

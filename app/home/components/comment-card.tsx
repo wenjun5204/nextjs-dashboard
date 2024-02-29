@@ -9,7 +9,7 @@ export default function CommentCard({ comment }: { comment: any }) {
   const date = new Date(comment_time);
   return (
     <div>
-      <Card className=" bg-[#21282e]">
+      <Card className=" bg-transparent">
         <CardHeader className=" text-main">
           <div className="flex w-full justify-between">
             <span>{commenter}</span>
@@ -19,8 +19,8 @@ export default function CommentCard({ comment }: { comment: any }) {
           </div>
         </CardHeader>
         <Link href={`/home/${blog_id}/detail`}>
-          <CardContent className="">
-            <div className="line-clamp-4 bg-slate-100 rounded">{content}</div>
+          <CardContent className="bg-transparent">
+            <div className="line-clamp-4 rounded">{content}</div>
           </CardContent>
         </Link>
       </Card>

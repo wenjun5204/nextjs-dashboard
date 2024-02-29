@@ -35,7 +35,7 @@ const CarouselVercelBlog = ({ news }: { news: any }) => {
           return (
             <CarouselItem key={index} className="basis-12 pt-2">
               <Card>
-                <CardContent className="flex items-center justify-center p-2">
+                <CardContent className="flex items-center justify-center bg-gradient-to-r from-king-g-start to-king-g-end p-2 rounded-xl">
                   <span className="text-overflow-ellipsis line-clamp-1 w-full overflow-hidden text-base font-semibold">
                     <a
                       href={post_url}

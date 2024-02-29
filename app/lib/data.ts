@@ -239,6 +239,7 @@ export async function getTagsData() {
   try {
     const blogCountPromise = sql`SELECT COUNT(*) FROM blogs`;
     const customerCountPromise = sql`SELECT COUNT(*) FROM users`;
+    const todayComment = sql`SELECT COUNT(*) FROM comment where comment_time = CURRENT_DATE`;
     const invoiceStatusPromise = sql`SELECT
          SUM(CASE WHEN status = 'paid' THEN amount ELSE 0 END) AS "paid",
          SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
@@ -247,15 +248,17 @@ export async function getTagsData() {
     const data = await Promise.all([
       blogCountPromise,
       customerCountPromise,
-      // invoiceStatusPromise,
+      todayComment,
     ]);
 
     const numberOfBlogs = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
+    const numberOfComments = Number(data[2].rows[0].count ?? '0');
 
     return {
       numberOfCustomers,
       numberOfBlogs,
+      numberOfComments
     };
   } catch (error) {
     console.error('Database Error:', error);

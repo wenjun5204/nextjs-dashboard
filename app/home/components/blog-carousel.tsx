@@ -38,7 +38,7 @@ export default function CarouselBlog({ zhihu }: { zhihu: any }) {
           return (
             <CarouselItem key={index} className="">
               <Card>
-                <CardContent className="flex aspect-square flex-col items-center justify-center p-6">
+                <CardContent className="flex aspect-square flex-col items-center justify-center bg-fuchsia-200 rounded-xl p-6">
                   <a href={url} target="_blank" rel="noopener noreferrer">
                     <div className=" line-clamp-2 text-hide">{title}</div>
                   </a>
@@ -57,7 +57,7 @@ export default function CarouselBlog({ zhihu }: { zhihu: any }) {
                   <div className="line-clamp-3 w-full text-sm text-normal">
                     {excerpt}
                   </div>
-                  <div className='w-full flex-row-reverse items-center text-highlight flex'>
+                  <div className="flex w-full flex-row-reverse items-center text-highlight">
                     <LightningBoltIcon />
                     <span>{detail_text}</span>
                   </div>

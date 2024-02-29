@@ -20,24 +20,17 @@ import { getTagsData } from '@/app/lib/data';
 import Link from 'next/link';
 
 const PersonCard = async () => {
-  const {
-    numberOfCustomers,
-    numberOfBlogs,
-  } = await getTagsData();
-  //   console.log(user);
+  const { numberOfCustomers, numberOfBlogs, numberOfComments } =
+    await getTagsData();
+  const arr = [numberOfBlogs, numberOfComments, numberOfCustomers];
+  // console.log(numberOfComments);
   return (
     // 为下列div元素添加圆角和阴影
-    <div className="w-full mt-2 flex h-auto flex-col justify-center rounded-xl bg-hide p-6 shadow-sm">
+    <div className="mt-2 flex h-auto w-full flex-col justify-center rounded-xl bg-gradient-to-r from-base-g-start to-base-g-end p-6 shadow">
       <div className="relative flex flex-col items-center justify-around">
-        <Link
-          href="/login"
-          className=" h-1/3 w-1/3"
-        >
-          <Avatar className='w-full h-full hover:animate-spin'>
-            <AvatarImage
-              src="/assets/dragon.png"
-              alt="@regan"
-            />
+        <Link href="/login" className=" h-1/3 w-1/3">
+          <Avatar className="h-full w-full hover:animate-spin">
+            <AvatarImage src="/avator.png" alt="@regan" />
             <AvatarFallback>regan</AvatarFallback>
           </Avatar>
         </Link>
@@ -49,23 +42,15 @@ const PersonCard = async () => {
       </div>
 
       <div className="flex items-center justify-around">
-        <Card>
-          <CardHeader>
-            <CardTitle>文章</CardTitle>
-            <CardDescription>{numberOfBlogs}</CardDescription>
-          </CardHeader>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>用户</CardTitle>
-            <CardDescription>{numberOfCustomers}</CardDescription>
-          </CardHeader>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>标签</CardTitle>
-            <CardDescription>20</CardDescription>
-          </CardHeader>
+        <Card className="w-full py-6">
+          <CardContent className="flex w-full items-center gap-2 pb-0">
+            {Array.from(['文章', '用户', '评论']).map((it, ind) => (
+              <div className=" w-1/3" key={ind}>
+                <div>{it}</div>
+                <div className=" font-bold text-highlight">{arr[ind]}</div>
+              </div>
+            ))}
+          </CardContent>
         </Card>
       </div>
     </div>

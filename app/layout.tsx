@@ -29,7 +29,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className='m-auto  max-w-7xl overflow-auto'>{children}</div>
+          <div className='m-auto relative  max-w-7xl min-h-screen overflow-auto'>{children}</div>
         </ThemeProvider>
       </body>
     </html>

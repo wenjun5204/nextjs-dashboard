@@ -8,7 +8,7 @@ export default function Page() {
   const [show, setshow] = useState(false);
   return (
     <div>
-      {<SenseDrawer open={show}/>}
+      {<SenseDrawer open={show} />}
       <Button onClick={() => setshow(!show)}>Click Me</Button>
     </div>
   );

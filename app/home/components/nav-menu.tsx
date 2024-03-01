@@ -108,9 +108,12 @@ export function Menu() {
             <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
           </MenubarRadioGroup>
           <MenubarSeparator />
-          <MenubarItem inset>Edit...</MenubarItem>
+          <Link href={'/home/topic'}>
+            <MenubarItem inset>留言</MenubarItem>
+          </Link>
+
           <MenubarSeparator />
-          <MenubarItem inset>Add Profile...</MenubarItem>
+          <MenubarItem inset>友链</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>

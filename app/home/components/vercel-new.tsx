@@ -1,14 +1,29 @@
+'use client';
+import { useEffect, useState } from 'react';
 import CarouselVercelBlog from './blog-vercel';
 
-export default async function VercelNews() {
-  const BASE_URL = process.env.AUTH_URL;
-  const res = await fetch(BASE_URL + '/api/list').then((ss) => ss.json());
-  console.log(66, BASE_URL);
-  const { data } = res || {};
+export default function VercelNews() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        // console.log(777, process.env.AUTH_URL);
+        const res = await fetch('/api/list').then((ss) => ss.json());
+        
+        const { data } = res || {};
+        setData(data || []);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  }, []);
 
   // const data: any = [{ city: 123 }];
   return (
-    <div className=' max-w-lg'>
+    <div className=" max-w-lg">
       <CarouselVercelBlog news={data || []} />
     </div>
   );

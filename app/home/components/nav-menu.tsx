@@ -25,6 +25,30 @@ import {
 import Link from 'next/link';
 
 export function Menu() {
+  // function Bookmark({slug}) {
+  //   return <button
+  //       formAction={
+  //           async ()=>{
+  //               "use server"
+  //               await sql`INSERT INTO Bookmark (slug) VALUES (${slug});`
+  //           }
+  //       }
+  //   >插入</button>;
+// }
+
+
+
+  // 参数化查询
+  // const name ='john';
+  
+  // const greet = (string: TemplateStringsArray, name: string)=>{
+  //   console.log(7776, string)
+  //   return `hello, ${name}`
+  // };
+
+  // const greeting =greet`first ss second ${name}`;
+
+  // console.log(7776, greeting);
   return (
     <Menubar className="h-full w-auto">
       <MenubarMenu>

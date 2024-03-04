@@ -4,9 +4,11 @@ export default async function RowCarsel() {
   const handleFetch = async () => {
     try {
       const ss = await fetch(
-        'https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=20&desktop=true',
+        `${process.env.AUTH_URL}`+'/api/list/zhihu',
       ).then((res) => res.json());
+      // console.log(666, ss);
       return ss;
+      
     } catch (error) {
       console.log(error);
       return { data: [] };
@@ -16,7 +18,7 @@ export default async function RowCarsel() {
   //   'https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=20&desktop=true',
   // ).then((res) => res.json());
 
-  // console.log(666, ss);
+  
   const { data } = (await handleFetch()) || {};
   return <CarouselBlog zhihu={data} />;
 }

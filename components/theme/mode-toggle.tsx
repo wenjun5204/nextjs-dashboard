@@ -1,9 +1,4 @@
-/*
- * @Author: liuwenjun05 liuwenjun05@meituan.com
- * @Date: 2024-01-16 14:28:48
- * @LastEditors: liuwenjun05
- * @Description: file content
- */
+
 "use client"
 
 import * as React from "react"
@@ -32,13 +27,13 @@ export function ModeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+          明亮
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+          暗黑
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          系统
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

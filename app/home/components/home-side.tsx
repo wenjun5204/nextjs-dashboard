@@ -5,9 +5,9 @@ import BlogNav from './blog-nav';
 export default function HomeSide() {
 
   return (
-    <div className="fixed top-0 h-screen w-80 ">
+    <div className="sticky top-10 w-80 ">
       {/* <PersonCard /> */}
-      <div className=" mt-10 hidden md:flex">
+      <div className="mt-10 hidden md:flex">
         <BlogNav />
       </div>
       <div className="mt-10">

@@ -13,8 +13,8 @@ export default async function Layout({
   const blog = await fetchBlogById(id);
   return (
     <WraperProvider blog={blog}>
-      <div className="flex w-full flex-col md:flex-row md:overflow-hidden">
-        <div className="z-10 h-auto w-1/4 flex-none hidden md:block">
+      <div className="flex w-full h-screen">
+        <div className="z-10 w-1/4 flex-none hidden md:block">
           <HomeSide />
         </div>
         <div className="relative w-full md:w-3/4 pt-10">{children}</div>

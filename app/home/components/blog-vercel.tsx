@@ -19,7 +19,7 @@ const CarouselVercelBlog = ({ news }: { news: any }) => {
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   return (
     <Carousel
-      // plugins={[plugin.current]}
+      plugins={[plugin.current]}
       opts={{
         align: 'start',
         loop: true,

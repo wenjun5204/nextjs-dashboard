@@ -23,6 +23,7 @@ import {
   MenubarTrigger,
 } from '@/components/ui/menubar';
 import Link from 'next/link';
+import { ModeToggle } from '@/components/theme/mode-toggle';
 
 export function Menu() {
   // function Bookmark({slug}) {
@@ -34,13 +35,11 @@ export function Menu() {
   //           }
   //       }
   //   >插入</button>;
-// }
-
-
+  // }
 
   // 参数化查询
   // const name ='john';
-  
+
   // const greet = (string: TemplateStringsArray, name: string)=>{
   //   console.log(7776, string)
   //   return `hello, ${name}`
@@ -162,6 +161,7 @@ export function Menu() {
           </MenubarTrigger>
         </Link>
       </MenubarMenu>
+      <ModeToggle />
     </Menubar>
   );
 }

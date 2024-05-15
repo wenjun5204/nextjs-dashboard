@@ -9,8 +9,8 @@ export default function VercelNews() {
   useEffect(() => {
     async function fetchData() {
       try {
-        // console.log(777, process.env.AUTH_URL);
-        const res = await fetch('/api/list').then((ss) => ss.json());
+        const timestamp = new Date().getTime();
+        const res = await fetch(`/api/list?timestamp=${timestamp}`).then((ss) => ss.json());
         
         const { data } = res || {};
         setData(data || []);

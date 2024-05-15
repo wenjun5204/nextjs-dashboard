@@ -3,8 +3,9 @@ import CarouselBlog from './blog-carousel';
 export default async function RowCarsel() {
   const handleFetch = async () => {
     try {
+      const timestamp = new Date().getTime();
       const ss = await fetch(
-        `${process.env.AUTH_URL}`+'/api/list/zhihu',
+        `${process.env.AUTH_URL}`+'/api/list/zhihu?timestamp=${timestamp}`',
       ).then((res) => res.json());
       // console.log(666, ss);
       return ss;

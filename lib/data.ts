@@ -10,7 +10,7 @@ const URL = {
   getOnlinePlan:
     'https://fsd.sankuai.com/api/qa/v1/onlinePlan/getOnlinePlanList',
   getWeather:
-    'https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key=dfa1a88fafad1faee1932685afb4325a',
+    'https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key=95a9d5f0a87ef8550bfc6591a2aeef18',
   getEct:
     'https://ect.sankuai.com/api/provider/delivery/getOnlineProgramCheckData',
   getGuanNews:

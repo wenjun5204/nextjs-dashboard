@@ -4,8 +4,8 @@ import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 import { redirect } from 'next/navigation';
-import { signIn } from '@/auth';
-import { AuthError } from 'next-auth';
+// import { signIn } from '@/auth';
+// import { AuthError } from 'next-auth';
 import bcrypt from 'bcrypt';
 
 const FormSchema = z.object({
@@ -107,24 +107,24 @@ export async function deleteInvoice(id: string) {
 }
 
 // 验证
-export async function authenticate(
-  prevState: string | undefined,
-  formData: FormData,
-) {
-  try {
-    await signIn('credentials', formData);
-  } catch (error) {
-    if (error instanceof AuthError) {
-      switch (error.type) {
-        case 'CredentialsSignin':
-          return '账号密码错误.';
-        default:
-          return '登录失败.';
-      }
-    }
-    throw error;
-  }
-}
+// export async function authenticate(
+//   prevState: string | undefined,
+//   formData: FormData,
+// ) {
+//   try {
+//     await signIn('credentials', formData);
+//   } catch (error) {
+//     if (error instanceof AuthError) {
+//       switch (error.type) {
+//         case 'CredentialsSignin':
+//           return '账号密码错误.';
+//         default:
+//           return '登录失败.';
+//       }
+//     }
+//     throw error;
+//   }
+// }
 
 //创建用户
 export async function createUser(_: any, formData: FormData) {
@@ -143,4 +143,3 @@ export async function createUser(_: any, formData: FormData) {
 
   // return { message: 'User Created.' };
 }
-

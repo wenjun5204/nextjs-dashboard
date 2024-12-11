@@ -4,11 +4,11 @@
  * @LastEditors: liuwenjun05
  * @Description: file content
  */
-import NextAuth from 'next-auth';
-import { authConfig } from './auth.config';
-import { NextRequest, NextResponse } from 'next/server';
+// import NextAuth from 'next-auth';
+// import { authConfig } from './auth.config';
+// import { NextRequest, NextResponse } from 'next/server';
 
-export default NextAuth(authConfig).auth;
+// export default NextAuth(authConfig).auth;
 
  
 // This function can be marked `async` if using `await` inside
@@ -42,7 +42,7 @@ export default NextAuth(authConfig).auth;
 export const config = {
   // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
   matcher: [
-    '/((?!api|blog|\/|_next/static|_next/image|.*\\.png$).*)',
+    // '/((?!api|blog|\/|_next/static|_next/image|.*\\.png$).*)',
     // '/user'
   ],
   // missing: [

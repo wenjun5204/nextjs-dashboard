@@ -5,7 +5,7 @@
  * @Description: file content
  */
 import React from 'react';
-import { auth } from '@/auth';
+// import { auth } from '@/auth';
 import Image from 'next/image';
 import {
   Card,
@@ -18,8 +18,8 @@ import {
 import { getTagsData } from '@/app/lib/data';
 
 export default async function PersonCard() {
-  const { user } = (await auth()) as any;
-  const { name, email } = user || {};
+  // const { user } = (await auth()) as any;
+  // const { name, email } = user || {};
   const {
     numberOfCustomers,
     numberOfBlogs,
@@ -35,8 +35,8 @@ export default async function PersonCard() {
           width={100}
           height={100}
         />
-        <span className=" text-lg">{name}</span>
-        <div>{email}</div>
+        <span className=" text-lg">{/* name */}</span>
+        <div>{/* email */}</div>
       </div>
 
       <div className="flex items-center justify-around">
